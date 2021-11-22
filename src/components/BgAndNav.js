@@ -10,21 +10,21 @@ import {
 } from 'reactstrap';
 
 
-export default class App extends Component {
+export default class BgAndNav extends Component {
     render() {
         return (
             <section className="bg-gradient">
                 <div className="container-fluid pt-3">
                     <header className="d-flex flex-column justify-content-center side-margin">
                         <div className="container-lg">
-                            <Nav className="Navbar navbar-expand-md navbar-dark">
+                            <Nav className="navbar navbar-expand-md navbar-dark">
                                 <NavbarBrand href="/" className="py-2 logo" src="images/Logo.svg" alt=""></NavbarBrand>                      
                                 <NavbarToggler type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span className="NavbarToggler-icon"></span>
+                                    <span className="navbar-toggler-icon"></span>
                                 </NavbarToggler>
 
                                 <Collapse navbar id="navbarSupportedContent">
-                                    <Navbar mr-auto>
+                                    <Navbar className="navbar-nav" mr-auto>
                                         <NavItem>
                                             <NavLink active href="/">Home<span className="sr-only">(current)</span></NavLink>
                                         </NavItem>
