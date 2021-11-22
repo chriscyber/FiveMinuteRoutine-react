@@ -14,7 +14,33 @@ export default class App extends Component {
     render() {
         return (
             <section className="bg-gradient">
-                <h1>test</h1>
+                <div className="container-fluid pt-3">
+                    <header className="d-flex flex-column justify-content-center side-margin">
+                        <div className="container-lg">
+                            <Nav className="Navbar navbar-expand-md navbar-dark">
+                                <NavbarBrand href="/" className="py-2 logo" src="images/Logo.svg" alt=""></NavbarBrand>                      
+                                <NavbarToggler type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span className="NavbarToggler-icon"></span>
+                                </NavbarToggler>
+
+                                <Collapse navbar id="navbarSupportedContent">
+                                    <Navbar mr-auto>
+                                        <NavItem>
+                                            <NavLink active href="/">Home<span className="sr-only">(current)</span></NavLink>
+                                        </NavItem>
+                                        <NavItem>
+                                            <NavLink href="/contactUs.html">Contact Us</NavLink>
+                                        </NavItem>
+                                    </Navbar>
+                                    <div pills>
+                                        <Button className="btn btn-outline-info rounded-pill mr-3 mt-3 btn-invert" id="LoginBtn" style="min-width: 100px;">Login</Button>
+                                        <Button className="btn btn-info mt-3 rounded-pill text-primary" id="RegisterBtn" style="min-width: 100px;">Register</Button>
+                                    </div>
+                                </Collapse>
+                            </Nav>
+                        </div>
+                    </header>
+                </div>
             </section>
         );
         
