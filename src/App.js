@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./App.css"
+import "./css/main.css"
 import BgAndNav from "./components/BgAndNav";
 
 

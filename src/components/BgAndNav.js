@@ -6,7 +6,8 @@ import {
     Collapse,
     NavLink,
     Nav,
-    NavbarBrand
+    NavbarBrand,
+    Button
 } from 'reactstrap';
 
 
@@ -31,22 +32,25 @@ export default class BgAndNav extends Component {
                                         <NavItem>
                                             <NavLink href="/contactUs.html">Contact Us</NavLink>
                                         </NavItem>
+                                        <NavItem>
+                                            <button className="btn btn-outline-info rounded-pill mr-3 mt-3 btn-invert" id="LoginBtn" style={{ minWidth: "100px" }}>Login </button>
+                                        </NavItem>
+                                        <NavItem>
+                                            <button className="btn btn-info mt-3 rounded-pill text-primary" id="RegisterBtn" style={{ minWidth: "100px" }}>Register </button>
+                                        </NavItem>
                                     </Navbar>
-                                    <div pills>
-                                        <Button className="btn btn-outline-info rounded-pill mr-3 mt-3 btn-invert" id="LoginBtn" style="min-width: 100px;">Login</Button>
-                                        <Button className="btn btn-info mt-3 rounded-pill text-primary" id="RegisterBtn" style="min-width: 100px;">Register</Button>
-                                    </div>
                                 </Collapse>
+
+                                
                             </Nav>
                         </div>
                     </header>
-                </div>
+                </div>        
             </section>
         );
         
     }
 
 }
-
 
 
