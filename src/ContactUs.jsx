@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import LoginRegModal from "./Components/LoginRegModal";
 import {
   Input,
   Label,
@@ -8,6 +7,7 @@ import {
   Card,
   CardHeader,
   CardBody,
+  Container,
 } from "reactstrap";
 
 export default class ContactUs extends Component {
@@ -15,26 +15,23 @@ export default class ContactUs extends Component {
     super(props);
 
     this.state = {
-      logregToggle: false,
+      name: "",
+      email: "",
+      message: "",
     };
 
-    this.LogRegToggle = this.LogRegToggle.bind(this);
+    this.HandleInput = this.HandleInput.bind(this);
   }
 
-  LogRegToggle() {
-    this.setState({ logregToggle: !this.state.logregToggle });
+  HandleInput(event) {
+    this.setState({ ...this.state, [event.target.name]: event.target.value });
   }
 
   render() {
     return (
       <div>
         <div className="bg-gradient">
-          <div className="container-fluid pt-5">
-            <LoginRegModal
-              logregToggle={this.state.logregToggle}
-              LogRegToggle={this.LogRegToggle}
-            />
-
+          <Container fluid className=" pt-5">
             <div className="row justify-content-center">
               <h3 class="text-center text-white mt-5 side-margin col-8">
                 We welcome any feedback.
@@ -42,11 +39,11 @@ export default class ContactUs extends Component {
             </div>
 
             <div className="row justify-content-center">
-              <Card className="card bg-light mt-5 shadow-lg overtop col-8">
-                <CardHeader className="card-header text-center text-white bg-primary">
+              <Card className="bg-light mt-5 shadow-lg overtop col-8">
+                <CardHeader className="text-center text-white bg-primary">
                   <h3>Contact Us!</h3>
                 </CardHeader>
-                <CardBody classNameclassName="card-body">
+                <CardBody>
                   <Form className="ml-3 mr-3">
                     <FormGroup>
                       <Label for="ContactName">Name *</Label>
@@ -54,8 +51,10 @@ export default class ContactUs extends Component {
                         className="bg-light text-dark rounded form-control"
                         id="ContactName"
                         type="text"
-                        name="Name"
+                        name="name"
                         placeholder="Your Name"
+                        value={this.state.name}
+                        onChange={this.HandleInput}
                       />
                     </FormGroup>
                     <FormGroup>
@@ -64,8 +63,10 @@ export default class ContactUs extends Component {
                         className="bg-light text-dark rounded form-control"
                         id="Email"
                         type="email"
-                        name="Email"
+                        name="email"
                         placeholder="Your Email"
+                        value={this.state.email}
+                        onChange={this.HandleInput}
                       />
                     </FormGroup>
                     <FormGroup>
@@ -75,8 +76,10 @@ export default class ContactUs extends Component {
                         id="Message"
                         rows="6"
                         type="textarea"
-                        name="Message"
+                        name="message"
                         placeholder="Message"
+                        value={this.state.message}
+                        onChange={this.HandleInput}
                       />
                     </FormGroup>
                     <FormGroup>
@@ -88,7 +91,7 @@ export default class ContactUs extends Component {
                 </CardBody>
               </Card>
             </div>
-          </div>
+          </Container>
         </div>
 
         <footer class="bg-secondary">
