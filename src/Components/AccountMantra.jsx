@@ -3,7 +3,7 @@ import { Container } from "reactstrap";
 
 export default function AccountMantra() {
   return (
-    <div className="vh-100 position-relative">
+    <div className="position-relative" style={{ height: "25rem" }}>
       <Container fluid>
         <div
           className="jumbotron jumbotron-fluid rounded bg-light shadow-lg account-jumbotron mx-auto border-primary"

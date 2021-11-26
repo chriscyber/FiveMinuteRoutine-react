@@ -3,15 +3,12 @@ import { Container } from "reactstrap";
 
 export default function AccountDailyQuote() {
   return (
-    <Container fluid className="pt-5">
-      <div className="text-center text-white">
+    <Container fluid className="pt-5" style={{ maxWidth: 1500 }}>
+      <div className="text-white">
         <h1>Daily Quote</h1>
       </div>
 
-      <div
-        className="jumbotron jumbotron-fluid rounded bg-light shadow-lg mx-auto border-primary mt-5 pb-5"
-        style={{ maxWidth: 1500 }}
-      >
+      <div className="jumbotron jumbotron-fluid rounded bg-light shadow-lg mx-auto border-primary mt-5 pb-5">
         <Container>
           <div className="row">
             <div className="col-12 col-lg-4 text-center">
