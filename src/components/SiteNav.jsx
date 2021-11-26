@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 import {
     Navbar,
     NavItem,
@@ -7,14 +7,12 @@ import {
     NavLink,
     Nav,
     NavbarBrand,
-    Button
+
 } from 'reactstrap';
-
-
-export default class BgAndNav extends Component {
+export default class SiteNav extends Component {
     render() {
         return (
-            <section className="bg-gradient">
+            <div>
                 <div className="container-fluid pt-3">
                     <header className="d-flex flex-column justify-content-center side-margin">
                         <div className="container-lg">
@@ -25,32 +23,24 @@ export default class BgAndNav extends Component {
                                 </NavbarToggler>
 
                                 <Collapse navbar id="navbarSupportedContent">
-                                    <Navbar className="navbar-nav" mr-auto>
+                                    <Navbar className="navbar-nav mr-auto" >
                                         <NavItem>
                                             <NavLink active href="/">Home<span className="sr-only">(current)</span></NavLink>
                                         </NavItem>
                                         <NavItem>
                                             <NavLink href="/contactUs.html">Contact Us</NavLink>
                                         </NavItem>
-                                        <NavItem>
-                                            <button className="btn btn-outline-info rounded-pill mr-3 mt-3 btn-invert" id="LoginBtn" style={{ minWidth: "100px" }}>Login </button>
-                                        </NavItem>
-                                        <NavItem>
-                                            <button className="btn btn-info mt-3 rounded-pill text-primary" id="RegisterBtn" style={{ minWidth: "100px" }}>Register </button>
-                                        </NavItem>
                                     </Navbar>
+                                        <button className="btn btn-outline-info rounded-pill mr-3 mt-3 btn-invert" id="LoginBtn" style={{ minWidth: "100px" }}>Login </button>
+                                        <button className="btn btn-info mt-3 rounded-pill text-primary" id="RegisterBtn" style={{ minWidth: "100px" }}>Register </button>
                                 </Collapse>
 
                                 
                             </Nav>
                         </div>
                     </header>
-                </div>        
-            </section>
-        );
-        
+                </div> 
+            </div>
+        )
     }
-
 }
-
-
