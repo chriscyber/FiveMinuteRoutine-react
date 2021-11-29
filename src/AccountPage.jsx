@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import AccountDailyQuote from "./components/AccountDailyQuote";
 import AccountMantra from "./components/AccountMantra";
 import AccountGoals from "./components/AccountGoals";
+import SiteNav from "./components/SiteNav";
 
 export default class AccountPage extends Component {
   render() {
     return (
       <div>
         <div className="bg-gradient">
+          <SiteNav />
           <AccountDailyQuote />
 
           <svg

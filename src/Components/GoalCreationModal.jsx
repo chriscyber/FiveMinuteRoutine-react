@@ -1,14 +1,6 @@
 import React, { Component } from "react";
-import {
-  Modal,
-  ModalBody,
-  ModalHeader,
-  Form,
-  FormGroup,
-  Input,
-  Label,
-  FormText,
-} from "reactstrap";
+
+import { Modal, Form, Button } from "react-bootstrap";
 
 export default class GoalCreationModal extends Component {
   constructor(props) {
@@ -37,50 +29,48 @@ export default class GoalCreationModal extends Component {
   render() {
     return (
       <Modal
-        isOpen={this.props.modalIsOpen}
-        toggle={this.props.modalToggle}
+        show={this.props.modalIsOpen}
+        onHide={this.props.modalToggle}
         centered
       >
-        <ModalHeader>Create Goal</ModalHeader>
-        <ModalBody>
+        <Modal.Header closeButton>Create Goal</Modal.Header>
+        <Modal.Body>
           <Form>
-            <FormGroup>
-              <Label htmlFor="goalTitle">
+            <Form.Group>
+              <Form.Label htmlFor="goalTitle">
                 <strong>Goal Title</strong>
-              </Label>
-              <Input
+              </Form.Label>
+              <Form.Control
                 id="goalTitle"
                 placeholder="Goal Title"
                 value={this.state.Title}
                 onChange={this.HandleInput}
                 name="Title"
               />
-            </FormGroup>
-            <FormGroup>
-              <Label htmlFor="days" id="daysLabel">
+            </Form.Group>
+            <Form.Group>
+              <Form.Label htmlFor="days" id="daysLabel">
                 <strong>Days</strong>
-              </Label>
-              <Input
+              </Form.Label>
+              <Form.Control
                 id="days"
                 placeholder="Days"
                 value={this.state.Days}
                 onChange={this.HandleInput}
                 name="Days"
               />
-              <FormText>
+              <Form.Text>
                 The ammount of consecutive days needed to complete this goal.
-              </FormText>
-            </FormGroup>
-            <FormGroup>
-              <button
-                onClick={this.OnSubmit}
-                className="btn btn-primary rounded-pill form-control"
-              >
-                Create
-              </button>
-            </FormGroup>
+              </Form.Text>
+            </Form.Group>
+            <Button
+              onClick={this.OnSubmit}
+              className="btn btn-primary rounded-pill form-control mt-3"
+            >
+              Create
+            </Button>
           </Form>
-        </ModalBody>
+        </Modal.Body>
       </Modal>
     );
   }

@@ -3,7 +3,7 @@ import ContactUs from "./ContactUs";
 import AccountPage from "./AccountPage";
 import HomePage from "./HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./css/main.css";
+import "./css/main.min.css";
 
 export default class App extends Component {
   render() {

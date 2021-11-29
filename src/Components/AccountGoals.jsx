@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container } from "reactstrap";
+import { Container, Button } from "react-bootstrap";
 import Goal from "./Goal";
 import GoalCreationModal from "./GoalCreationModal";
 
@@ -50,12 +50,13 @@ export default class AccountGoals extends Component {
               />
             );
           })}
-          <button
-            className="btn btn-primary rounded-pill mt-5"
+          <Button
+            variant="primary"
+            className="rounded-pill mt-5"
             onClick={this.ToggleGoalModal}
           >
             Add Goal
-          </button>
+          </Button>
         </Container>
       </div>
     );

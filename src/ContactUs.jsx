@@ -1,14 +1,7 @@
 import React, { Component } from "react";
-import {
-  Input,
-  Label,
-  Form,
-  FormGroup,
-  Card,
-  CardHeader,
-  CardBody,
-  Container,
-} from "reactstrap";
+
+import { Form, Container, Card } from "react-bootstrap";
+import SiteNav from "./components/SiteNav";
 
 export default class ContactUs extends Component {
   constructor(props) {
@@ -31,6 +24,7 @@ export default class ContactUs extends Component {
     return (
       <div>
         <div className="bg-gradient">
+          <SiteNav />
           <Container fluid className=" pt-5">
             <div className="row justify-content-center">
               <h3 class="text-center text-white mt-5 side-margin col-8">
@@ -40,55 +34,58 @@ export default class ContactUs extends Component {
 
             <div className="row justify-content-center">
               <Card className="bg-light mt-5 shadow-lg overtop col-8">
-                <CardHeader className="text-center text-white bg-primary">
+                <Card.Header className="text-center text-white bg-primary">
                   <h3>Contact Us!</h3>
-                </CardHeader>
-                <CardBody>
-                  <Form className="ml-3 mr-3">
-                    <FormGroup>
-                      <Label for="ContactName">Name *</Label>
-                      <Input
-                        className="bg-light text-dark rounded form-control"
-                        id="ContactName"
-                        type="text"
-                        name="name"
-                        placeholder="Your Name"
-                        value={this.state.name}
-                        onChange={this.HandleInput}
-                      />
-                    </FormGroup>
-                    <FormGroup>
-                      <Label for="Email">Your Email *</Label>
-                      <Input
-                        className="bg-light text-dark rounded form-control"
-                        id="Email"
-                        type="email"
-                        name="email"
-                        placeholder="Your Email"
-                        value={this.state.email}
-                        onChange={this.HandleInput}
-                      />
-                    </FormGroup>
-                    <FormGroup>
-                      <Label for="Message">Message *</Label>
-                      <Input
-                        className="bg-light text-dark rounded form-control"
-                        id="Message"
-                        rows="6"
-                        type="textarea"
-                        name="message"
-                        placeholder="Message"
-                        value={this.state.message}
-                        onChange={this.HandleInput}
-                      />
-                    </FormGroup>
-                    <FormGroup>
-                      <button className="btn btn-primary form-control rounded-pill mt-2">
-                        Submit!
-                      </button>
-                    </FormGroup>
-                  </Form>
-                </CardBody>
+                </Card.Header>
+                <Card.Body>
+                  <Card.Text>
+                    <Form className="ml-3 mr-3">
+                      <Form.Group>
+                        <Form.Label for="ContactName">Name *</Form.Label>
+                        <Form.Control
+                          className="bg-light text-dark rounded"
+                          id="ContactName"
+                          type="text"
+                          name="name"
+                          placeholder="Your Name"
+                          value={this.state.name}
+                          onChange={this.HandleInput}
+                        />
+                      </Form.Group>
+                      <Form.Group>
+                        <Form.Label for="Email">Your Email *</Form.Label>
+                        <Form.Control
+                          className="bg-light text-dark rounded"
+                          id="Email"
+                          type="email"
+                          name="email"
+                          placeholder="Your Email"
+                          value={this.state.email}
+                          onChange={this.HandleInput}
+                        />
+                      </Form.Group>
+                      <Form.Group>
+                        <Form.Label for="Message">Message *</Form.Label>
+                        <Form.Control
+                          className="bg-light text-dark rounded"
+                          id="Message"
+                          rows="6"
+                          as="textarea"
+                          name="message"
+                          placeholder="Message"
+                          value={this.state.message}
+                          onChange={this.HandleInput}
+                        />
+                      </Form.Group>
+                      <Form.Group>
+                        <button className="btn btn-primary form-control rounded-pill mt-2">
+                          Submit!
+                        </button>
+                      </Form.Group>
+                    </Form>
+                  </Card.Text>
+                </Card.Body>
+                .
               </Card>
             </div>
           </Container>
