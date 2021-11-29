@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { Form, Container, Card } from "react-bootstrap";
-import SiteNav from "./components/SiteNav";
+import SiteNav from "./Components/SiteNav";
 
 export default class ContactUs extends Component {
   constructor(props) {

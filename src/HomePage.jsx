@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SiteNav from "./components/SiteNav";
+import SiteNav from "./Components/SiteNav";
 
 export default class HomePage extends Component {
   render() {

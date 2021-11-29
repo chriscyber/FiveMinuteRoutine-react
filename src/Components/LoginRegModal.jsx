@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import LoginForm from "./LoginForm";
-import RegisterForm from "./RegisterForm";
-import { Nav, Modal, Row, Col } from "react-bootstrap";
+import { Nav, Modal } from "react-bootstrap";
 
 export default class LoginRegModal extends Component {
   render() {

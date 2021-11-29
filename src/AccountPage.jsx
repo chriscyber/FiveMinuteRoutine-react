@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import AccountDailyQuote from "./components/AccountDailyQuote";
-import AccountMantra from "./components/AccountMantra";
-import AccountGoals from "./components/AccountGoals";
-import SiteNav from "./components/SiteNav";
+import AccountDailyQuote from "./Components/AccountDailyQuote";
+import AccountMantra from "./Components/AccountMantra";
+import AccountGoals from "./Components/AccountGoals";
+import SiteNav from "./Components/SiteNav";
 
 export default class AccountPage extends Component {
   render() {
