@@ -1,33 +1,33 @@
 import React, { Component } from "react";
-import { Form, FormGroup, Label, Input } from "reactstrap";
+import { Form } from "react-bootstrap";
 
 export default class LoginForm extends Component {
   render() {
     return (
       <Form>
-        <FormGroup>
-          <Label for="Login-Username">Username *</Label>
-          <Input
+        <Form.Group>
+          <Form.Label for="Login-Username">Username *</Form.Label>
+          <Form.Control
             className="bg-light text-dark rounded form-control"
             id="Login-Username"
             type="text"
             name="Username"
             placeholder="Username"
           />
-        </FormGroup>
+        </Form.Group>
 
-        <FormGroup>
-          <Label for="Login-Password">Password *</Label>
-          <Input
+        <Form.Group>
+          <Form.Label for="Login-Password">Password *</Form.Label>
+          <Form.Control
             className="bg-light text-dark rounded form-control"
             id="Login-Password"
             type="text"
             name="Password"
             placeholder="Password"
           />
-        </FormGroup>
+        </Form.Group>
 
-        <FormGroup>
+        <Form.Group>
           <a
             href="/accountPage.html"
             class="btn btn-primary form-control rounded-pill mt-2"
@@ -35,13 +35,13 @@ export default class LoginForm extends Component {
           >
             Login!
           </a>
-        </FormGroup>
+        </Form.Group>
 
-        <FormGroup>
+        <Form.Group>
           <button className="btn btn-outline-primary rounded-pill form-control">
             Forgot Password?
           </button>
-        </FormGroup>
+        </Form.Group>
       </Form>
     );
   }
