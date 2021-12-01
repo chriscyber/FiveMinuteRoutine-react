@@ -1,64 +1,57 @@
 import React, { Component } from "react";
-import { Form, FormGroup, Label, Input } from "reactstrap";
+import { Form } from "react-bootstrap";
 
 export default class RegisterForm extends Component {
   render() {
     return (
-      <Form class="ml-3 mr-3">
-        <FormGroup class="form-group">
-          <Label for="Register-Email">Email *</Label>
-          <Input
-            class="bg-light text-dark rounded form-control"
+      <Form>
+        <Form.Group>
+          <Form.Label for="Register-Email">Email *</Form.Label>
+          <Form.Control
+            className="bg-light text-dark rounded form-control"
             id="Register-Email"
             type="email"
             name="Email"
             placeholder="Email"
           />
-        </FormGroup>
-        <FormGroup class="form-group">
-          <Label for="Register-Username">Username *</Label>
-          <Input
-            class="bg-light text-dark rounded form-control"
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label for="Register-Username">Username *</Form.Label>
+          <Form.Control
+            className="bg-light text-dark rounded form-control"
             id="Register-Username"
             type="text"
             name="Username"
             placeholder="Username"
           />
-        </FormGroup>
-        <FormGroup class="form-group">
-          <Label for="Regiser-Password">Password *</Label>
-          <Input
-            class="bg-light text-dark rounded form-control"
-            id="Regiser-Password"
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label for="Register-Password">Password *</Form.Label>
+          <Form.Control
+            className="bg-light text-dark rounded form-control"
+            id="Register-Password"
             type="password"
             name="Password"
             placeholder="Password"
           />
-        </FormGroup>
-        <FormGroup class="form-group">
-          <Label for="Regiser-Confirm-Password">Confirm Password *</Label>
-          <Input
-            class="bg-light text-dark rounded form-control"
-            id="Regiser-Confirm-Password"
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label for="Register-Confirm-Password">Password *</Form.Label>
+          <Form.Control
+            className="bg-light text-dark rounded form-control"
+            id="Register-Confirm-Password"
             type="password"
-            name="Confirm-Password"
+            name="Password"
             placeholder="Confirm Password"
           />
-        </FormGroup>
-        <FormGroup class="form-group">
-          <a
-            href="/accountPage.html"
-            class="btn btn-primary form-control rounded-pill mt-2"
-            id="Register-Submit"
-          >
-            Register!
-          </a>
-        </FormGroup>
-        <FormGroup class="form-group">
-          <button class="btn btn-outline-primary rounded-pill form-control">
-            Forgot Password?
-          </button>
-        </FormGroup>
+        </Form.Group>
+
+        <button className="btn btn-primary form-control rounded-pill mt-2">
+          Register!
+        </button>
       </Form>
     );
   }

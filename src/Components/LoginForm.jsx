@@ -27,21 +27,13 @@ export default class LoginForm extends Component {
           />
         </Form.Group>
 
-        <Form.Group>
-          <a
-            href="/accountPage.html"
-            class="btn btn-primary form-control rounded-pill mt-2"
-            id="Login-Submit"
-          >
-            Login!
-          </a>
-        </Form.Group>
+        <button className="btn btn-primary form-control rounded-pill mt-2">
+          Login!
+        </button>
 
-        <Form.Group>
-          <button className="btn btn-outline-primary rounded-pill form-control">
-            Forgot Password?
-          </button>
-        </Form.Group>
+        <button className="btn btn-outline-primary rounded-pill form-control mt-2">
+          Forgot Password?
+        </button>
       </Form>
     );
   }

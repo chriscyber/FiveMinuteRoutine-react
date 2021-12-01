@@ -1,10 +1,29 @@
 import React, { Component } from "react";
 import { Nav, Navbar } from "react-bootstrap";
+import LoginRegModal from "./LoginRegModal";
 
 export default class SiteNav extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      logRegIsOpen: false,
+    };
+
+    this.LogRegToggle = this.LogRegToggle.bind(this);
+  }
+
+  LogRegToggle() {
+    this.setState({ logRegIsOpen: !this.state.logRegIsOpen });
+  }
+
   render() {
     return (
       <div>
+        <LoginRegModal
+          logRegIsOpen={this.state.logRegIsOpen}
+          LogRegToggle={this.LogRegToggle}
+        />
         <div className="container-fluid pt-3">
           <header className="d-flex flex-column justify-content-center side-margin">
             <div className="container-lg">
@@ -34,22 +53,23 @@ export default class SiteNav extends Component {
                       </Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link href="/contactUs.html">Contact Us</Nav.Link>
+                      <Nav.Link href="/ContactUs">Contact Us</Nav.Link>
                     </Nav.Item>
                   </Navbar>
                   <button
                     className="btn btn-outline-info rounded-pill mr-3 mt-3 btn-invert"
                     id="LoginBtn"
                     style={{ minWidth: "100px" }}
+                    onClick={this.LogRegToggle}
                   >
-                    Login{" "}
+                    Login
                   </button>
                   <button
                     className="btn btn-info mt-3 rounded-pill text-primary"
                     id="RegisterBtn"
                     style={{ minWidth: "100px" }}
                   >
-                    Register{" "}
+                    Register
                   </button>
                 </Navbar.Collapse>
               </Nav>
