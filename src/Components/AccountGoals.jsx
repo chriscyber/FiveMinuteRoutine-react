@@ -2,9 +2,43 @@ import React, { Component } from "react";
 import { Container, Button } from "react-bootstrap";
 import Goal from "./Goal";
 import GoalCreationModal from "./GoalCreationModal";
-import { doc, updateDoc, arrayUnion, getDoc } from "firebase/firestore";
+import {
+  doc,
+  updateDoc,
+  arrayUnion,
+  getDoc,
+  arrayRemove,
+} from "firebase/firestore";
 import { db, auth } from "../firebase-config";
 import { Stagger, FadeTransform } from "react-animation-components";
+
+function RenderGoals(props) {
+  return (
+    <div>
+      {props.Goals.map((goal, index) => {
+        return (
+          <FadeTransform
+            in
+            key={index}
+            duration={25}
+            transformProps={{
+              exitTransform: "scale(0.5) translateY(50%)",
+            }}
+          >
+            <Goal
+              key={index}
+              title={goal.Title}
+              tag="health"
+              value={0}
+              max={goal.Days}
+              RemoveGoal={props.RemoveGoal}
+            />
+          </FadeTransform>
+        );
+      })}
+    </div>
+  );
+}
 
 export default class AccountGoals extends Component {
   constructor(props) {
@@ -17,6 +51,7 @@ export default class AccountGoals extends Component {
 
     this.ToggleGoalModal = this.ToggleGoalModal.bind(this);
     this.AddGoal = this.AddGoal.bind(this);
+    this.RemoveGoal = this.RemoveGoal.bind(this);
     this.GetGoalsFormDatabase = this.GetGoalsFormDatabase.bind(this);
   }
 
@@ -56,6 +91,29 @@ export default class AccountGoals extends Component {
     }
   }
 
+  async RemoveGoal(event, Goal) {
+    event.preventDefault();
+
+    this.setState((state) => {
+      const filter = state.Goals.filter((goal) => goal.Title !== Goal.Title);
+      console.log("Title to remove: ", Goal.Title);
+      return { Goals: filter };
+    });
+
+    try {
+      const usersRef = doc(db, "users", `${auth.currentUser.email}`);
+      await updateDoc(usersRef, {
+        Goals: arrayRemove({
+          Title: Goal.Title,
+          Days: Number(Goal.Days),
+          Progress: Goal.Progress,
+        }),
+      });
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
+
   async AddGoal(Title, Days) {
     this.setState((state) => {
       return { Goals: [...state.Goals, { Title: Title, Days: Number(Days) }] };
@@ -83,25 +141,10 @@ export default class AccountGoals extends Component {
           <h3 className="mb-3">Morning Routine Goals</h3>
           <hr />
           <Stagger in>
-            {this.state.Goals.map(function (item, i) {
-              return (
-                <FadeTransform
-                  in
-                  duration={25}
-                  transformProps={{
-                    exitTransform: "scale(0.5) translateY(50%)",
-                  }}
-                >
-                  <Goal
-                    key={i}
-                    title={item.Title}
-                    tag="health"
-                    value={0}
-                    max={item.Days}
-                  />
-                </FadeTransform>
-              );
-            })}
+            <RenderGoals
+              Goals={this.state.Goals}
+              RemoveGoal={this.RemoveGoal}
+            />
           </Stagger>
 
           <Button

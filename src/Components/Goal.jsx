@@ -28,7 +28,17 @@ export default class Goal extends Component {
             </Row>
             {`${this.props.value} / ${this.props.max} Days `}
             <ProgressBar max={this.props.max} now={this.props.value} />
-            <Button variant="primary" className="rounded-pill mt-3">
+            <Button
+              variant="primary"
+              className="rounded-pill mt-3"
+              onClick={(e) =>
+                this.props.RemoveGoal(e, {
+                  Title: this.props.title,
+                  Days: this.props.max,
+                  Progress: this.props.value,
+                })
+              }
+            >
               Remove Goal
             </Button>
           </Container>
