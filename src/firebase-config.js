@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFirestore, setDoc, doc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_APIKEY,
@@ -13,4 +14,15 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
+export const db = getFirestore(app);
 export const auth = getAuth(app);
+export async function AddUserToDatabase(user) {
+  try {
+    await setDoc(doc(db, "users", `${user.user.email}`), {
+      UID: user.user.uid,
+      Email: user.user.email,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
