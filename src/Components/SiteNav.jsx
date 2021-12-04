@@ -58,7 +58,6 @@ export default class SiteNav extends Component {
                   </Navbar>
                   <button
                     className="btn btn-outline-info rounded-pill mr-3 mt-3 btn-invert"
-                    id="LoginBtn"
                     style={{ minWidth: "100px" }}
                     onClick={this.LogRegToggle}
                   >
@@ -66,7 +65,6 @@ export default class SiteNav extends Component {
                   </button>
                   <button
                     className="btn btn-info mt-3 rounded-pill text-primary"
-                    id="RegisterBtn"
                     style={{ minWidth: "100px" }}
                   >
                     Register
