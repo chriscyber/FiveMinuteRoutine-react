@@ -15,6 +15,6 @@ export default class CommitForm extends Component {
         </CommitForm>
     );
   }
-}
+} 
 
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container, Form, FormGroup, Button } from "react-bootstrap";
-import SiteNav from "./Components/SiteNav"
+import MainImage from "./Components/ImagesHome";
 
 
 
@@ -9,25 +9,10 @@ export default class HomePage extends Component {
     return (
       <div>
         <section className="bg-gradient">
-        <SiteNav />
           
             {/*-- Main image & 3 images with text --*/}
-            <Container>
-              <div className="position-relative">
-                <img
-                  className="image-fluid h-90 rounded border-hero-image shadow-lg"
-                  src="images/sunriseoverclouds.jpg"
-                  alt="sunrise"
-                  style={{ width: "100%" }}
-                />
-                <div className="centered">
-                  <h2 className="text-white text-center">
-                    Five Minute Morning Routine!
-                  </h2>
-                </div>
-              </div>
-            </Container>
-
+            
+          <MainImage />
             <Container>
               <div className="row row-content align-items-center p-5 pt-md-5 p-md-0">
                 <div className="col-12 col-md">

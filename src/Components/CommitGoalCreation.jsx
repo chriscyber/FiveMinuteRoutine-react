@@ -30,7 +30,7 @@ export default class CommitGoalCreation extends Component {
     <Form.Group>
         <Form.Control type="text" name="OneThing" placeholder="One Thing" />
         <Button type="button"  variant="btn btn-primary form-control rounded-pill mt-4" onClick={this.OnSubmit} >Commit!</Button>
-    </Form.Group>
+    </Form.Group> 
   </Form>
 
   render() {
