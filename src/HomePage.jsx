@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Form, Button, FloatingLabel } from "react-bootstrap";
 import ImagesHome from "./Components/HomeImages";
-import CommitForm from "./Components/CommitForm";
 
 
 export default class HomePage extends Component {
@@ -24,7 +23,25 @@ export default class HomePage extends Component {
               {"Close your eyes, sit back, and take a moment to think about that ONE THING and write it down below. The act of writing it down will start a domino effect of positive change in your life!"}
               </p>
           </div>
-          <CommitForm />      
+          {/* floating label doesn't work */}
+          <Form className="mt-5">
+            <Form.Group>
+                    controlId="floatingInput" 
+                    label="One Thing"
+                    className="bm-3">
+                  <Form.Control 
+                    type="text"  
+                    placeholder="One Thing"
+                  />
+                <Button 
+                  type="submit"
+                  value="submit"  
+                  variant="btn btn-primary form-control rounded-pill mt-4" 
+                  
+                  >Commit!
+                </Button>
+            </Form.Group>
+          </Form>      
         </Container>
         
         <footer className="one-thing-section">
