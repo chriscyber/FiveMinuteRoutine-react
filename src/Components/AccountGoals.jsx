@@ -111,7 +111,7 @@ export default class AccountGoals extends Component {
         });
 
         try {
-            const usersRef = doc(db, "users", `${auth.currentUser.email}`);
+            const usersRef = doc(db, "users", `${auth.currentUser.email}`); //updates doc/item in user's db and grab email tied to doc */
             await updateDoc(usersRef, {
                 Goals: arrayUnion({Title: Title, Days: Number(Days), Progress: 0}),
             });
