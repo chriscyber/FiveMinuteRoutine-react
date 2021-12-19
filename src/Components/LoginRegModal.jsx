@@ -48,7 +48,7 @@ export default class LoginRegModal extends Component {
   render() {
     return (
       <Modal show={this.props.logRegIsOpen} onHide={this.props.LogRegToggle}>
-        <Tab.Container defaultActiveKey="Login">
+        <Tab.Container defaultActiveKey={this.props.DefaultKey}>
           <Modal.Header>
             <Nav variant="pills">
               <Nav.Item>
