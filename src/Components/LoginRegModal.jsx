@@ -7,7 +7,7 @@ import {
   signOut,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { auth, AddUserToDatabase } from "../firebase-config";
+import { auth, AddUserToDatabase, AddGoal } from "../firebase-config";
 
 export default class LoginRegModal extends Component {
   constructor(props) {
@@ -16,6 +16,16 @@ export default class LoginRegModal extends Component {
     this.Register = this.Register.bind(this);
     this.Login = this.Login.bind(this);
     this.Logout = this.Logout.bind(this);
+  }
+
+  componentDidMount() {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        if (this.props.commitGoal) {
+          AddGoal(this.props.commitGoal, 30);
+        }
+      }
+    });
   }
 
   async Register(e, email, password) {

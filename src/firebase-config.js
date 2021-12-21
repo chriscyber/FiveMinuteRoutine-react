@@ -1,6 +1,12 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore, setDoc, doc } from "firebase/firestore";
+import {
+  getFirestore,
+  setDoc,
+  doc,
+  arrayUnion,
+  updateDoc,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_APIKEY,
@@ -24,5 +30,16 @@ export async function AddUserToDatabase(user) {
     });
   } catch (err) {
     console.log(err);
+  }
+}
+
+export async function AddGoal(Title, Days) {
+  try {
+    const usersRef = doc(db, "users", `${auth.currentUser.email}`); //updates doc/item in user's db and grab email tied to doc */
+    await updateDoc(usersRef, {
+      Goals: arrayUnion({ Title: Title, Days: Number(Days), Progress: 0 }),
+    });
+  } catch (err) {
+    console.log(err.message);
   }
 }

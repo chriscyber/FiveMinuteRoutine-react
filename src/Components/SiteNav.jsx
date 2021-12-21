@@ -86,6 +86,7 @@ export default class SiteNav extends Component {
         <LoginRegModal
           logRegIsOpen={this.state.logRegIsOpen}
           LogRegToggle={this.LogRegToggle}
+          DefaultKey="Register"
         />
         <div className="container-fluid pt-3">
           <header className="d-flex flex-column justify-content-center side-margin">
@@ -116,4 +117,4 @@ export default class SiteNav extends Component {
       </div>
     );
   }
-} 
+}

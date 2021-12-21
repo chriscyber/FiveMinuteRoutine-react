@@ -22,6 +22,7 @@ export default class HomeForm extends Component {
 
   OnSubmitCommit(event) {
     console.log("One Thing submitted - " + this.state.Title);
+    console.log(this.state);
     this.LogRegToggle();
     event.preventDefault();
   }
@@ -33,10 +34,24 @@ export default class HomeForm extends Component {
   render() {
     return (
       <div>
+        <div className="text-center font-weight-bold mt-5">
+          <p>
+            {
+              "If you had the power to change ONE THING about your life, about yourself, what would it be? Only you know what habit you may need to replace or improve in order to affect long-term change."
+            }
+            <br></br>
+            <br></br>
+            {
+              "Close your eyes, sit back, and take a moment to think about that ONE THING and write it down below. The act of writing it down will start a domino effect of positive change in your life!"
+            }
+          </p>
+        </div>
+
         <LoginRegModal
           logRegIsOpen={this.state.logRegIsOpen}
           LogRegToggle={this.LogRegToggle}
           DefaultKey="Register"
+          commitGoal={this.state.Title}
           //pass in optional prop "commitGoal. in loginRegModal file, if prop exists (onAuthStateChanged).
         />
         <Form className="mt-5">
