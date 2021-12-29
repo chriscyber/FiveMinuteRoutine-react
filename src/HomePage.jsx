@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import { Container, Form, Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import HomeImages from "./Components/HomeImages";
 import HomeForm from "./Components/HomeForm";
 import { auth } from "./firebase-config";
 import { useState, useEffect } from "react";
+import AccountPage from "./AccountPage";
+import { Route, Redirect } from "react-router";
 
 const RenderHomeForm = () => {
   const [currentUser, SetCurrentUser] = useState({});
@@ -15,7 +17,7 @@ const RenderHomeForm = () => {
   });
 
   if (currentUser) {
-    return <div></div>;
+    return <Redirect to="/Account" />;
   }
 
   return <HomeForm />;

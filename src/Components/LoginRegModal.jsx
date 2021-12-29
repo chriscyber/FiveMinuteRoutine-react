@@ -61,7 +61,7 @@ export default class LoginRegModal extends Component {
         <Tab.Container defaultActiveKey={this.props.DefaultKey}>
           <Modal.Header>
             <Nav variant="pills">
-              <Nav.Item>
+              <Nav.Item DefaultKey="Login">
                 <Nav.Link eventKey="Login">Login</Nav.Link>
               </Nav.Item>
               <Nav.Item>

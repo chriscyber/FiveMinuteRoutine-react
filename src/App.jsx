@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import ContactUs from "./ContactUs";
 import AccountPage from "./AccountPage";
 import HomePage from "./HomePage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import RenderHomeForm from "./HomePage";
+import { BrowserRouter, Routes, Route, Redirect } from "react-router-dom";
 import "./css/main.min.css";
 import SiteNav from "./Components/SiteNav";
 
