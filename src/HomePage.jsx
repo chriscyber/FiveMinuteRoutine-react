@@ -25,11 +25,8 @@ export default class HomePage extends Component {
   render() {
     return (
       <div>
-        <section className="bg-gradient">
-          <HomeImages />
-        </section>
-
         <Container>
+          <HomeImages />
           <RenderHomeForm />
         </Container>
 
