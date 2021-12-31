@@ -45,7 +45,6 @@ class RenderRightNav extends Component {
             className="btn btn-info mt-3 rounded-pill text-primary"
             id="RegisterBtn"
             style={{ minWidth: "100px" }}
-            onClick={this.props.LogRegToggle}
           >
             Register
           </button>

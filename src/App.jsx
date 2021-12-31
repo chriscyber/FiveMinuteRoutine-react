@@ -2,9 +2,13 @@ import React, { Component } from "react";
 import ContactUs from "./ContactUs";
 import AccountPage from "./AccountPage";
 import HomePage from "./HomePage";
+<<<<<<< HEAD
 import RenderHomeForm from "./HomePage";
 import { BrowserRouter, Routes, Route, Redirect } from "react-router-dom";
 import { Redirect } from "react-router";
+=======
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+>>>>>>> parent of 8ba6542 (Register Redirect to Account in progress)
 import "./css/main.min.css";
 import SiteNav from "./Components/SiteNav";
 
