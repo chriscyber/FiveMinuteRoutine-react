@@ -3,7 +3,8 @@ import {Nav, Navbar} from "react-bootstrap";
 import LoginRegModal from "./LoginRegModal";
 import {auth} from "../firebase-config";
 import {ReactComponent as Logo} from "../Images/Logo.svg";
-import Avatar from '../Images/Avatar.png'
+import Avatar from '../Images/Avatar.svg'
+import {Link} from "react-router-dom";
 
 class RenderRightNav extends Component {
     constructor(props) {
@@ -54,9 +55,9 @@ class RenderRightNav extends Component {
         } else {
             return (
                 <div>
-                    <a href="/Account"><img className="logo mr-3" src={Avatar}/></a>
+                    <Link to="/Account"><img className='avatar mr-3' src={Avatar}/></Link>
                     <button
-                        className="btn btn-outline-info rounded-pill mr-3 mt-3 btn-invert"
+                        className="btn btn-outline-info rounded-pill btn-invert"
                         onClick={this.logout}
                     >
                         Sign Out
@@ -73,6 +74,7 @@ export default class SiteNav extends Component {
 
         this.state = {
             logRegIsOpen: false,
+            activeNavKey: 'home'
         };
 
         this.LogRegToggle = this.LogRegToggle.bind(this);
@@ -80,6 +82,11 @@ export default class SiteNav extends Component {
 
     LogRegToggle() {
         this.setState({logRegIsOpen: !this.state.logRegIsOpen});
+    }
+
+    HandleNavSelection(selectedKey) {
+        this.setState({activeNavKey: selectedKey})
+        console.log("Selected Key is: " + selectedKey);
     }
 
     render() {
@@ -93,19 +100,18 @@ export default class SiteNav extends Component {
                     <header className="d-flex flex-column justify-content-center side-margin">
                         <div className="container-lg">
                             <Navbar expand="lg" className="navbar-dark">
-                                <Navbar.Brand href="/" alt="">
+                                <Navbar.Brand alt="">
                                     <Logo className="py-2 logo"/>
                                 </Navbar.Brand>
                                 <Navbar.Toggle aria-controls="site-nav"/>
                                 <Navbar.Collapse id="site-nav">
-                                    <Nav className="mr-auto">
+                                    <Nav activeKey={this.state.activeNavKey} className="mr-auto"
+                                         onSelect={(selectedKey => this.HandleNavSelection(selectedKey))}>
                                         <Nav.Item>
-                                            <Nav.Link active href="/">
-                                                Home<span className="sr-only">(current)</span>
-                                            </Nav.Link>
+                                            <Nav.Link as={Link} to="/" eventKey='home'>Home</Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <Nav.Link href="/ContactUs">Contact Us</Nav.Link>
+                                            <Nav.Link as={Link} to='/Contactus' eventKey='contact'>Contact Us</Nav.Link>
                                         </Nav.Item>
                                     </Nav>
 

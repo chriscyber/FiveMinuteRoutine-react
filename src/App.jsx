@@ -3,7 +3,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import ContactUs from "./ContactUs";
 import AccountPage from "./AccountPage";
 import HomePage from "./HomePage";
-import "./css/main.min.css";
+import "./css/main.css";
 import SiteNav from "./Components/SiteNav";
 
 export default class App extends Component {
