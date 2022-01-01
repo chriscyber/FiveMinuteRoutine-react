@@ -49,7 +49,7 @@ export default class RegisterForm extends Component {
 
         <Form.Group>
           <Form.Label htmlFor="Register-Confirm-Password">
-            Password *
+            Confirm Password *
           </Form.Label>
           <Form.Control
             className="bg-light text-dark rounded form-control"
