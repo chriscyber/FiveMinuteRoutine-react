@@ -5,8 +5,8 @@ import HomeForm from "./Components/HomeForm";
 import { auth } from "./firebase-config";
 import { useState, useEffect } from "react";
 
-const RenderHomeForm = () => {
-  const [currentUser, SetCurrentUser] = useState({});
+const RenderHomeForm = () => { 
+  const [currentUser, SetCurrentUser] = useState({}); // react hook
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {

@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 import { Nav, Modal, Tab } from "react-bootstrap";
@@ -9,78 +10,76 @@ import {
 } from "firebase/auth";
 import { auth, AddUserToDatabase, AddGoal } from "../firebase-config";
 
-export default class LoginRegModal extends Component {
-  constructor(props) {
-    super(props);
 
-    this.Register = this.Register.bind(this);
-    this.Login = this.Login.bind(this);
-    this.Logout = this.Logout.bind(this);
-  }
+export default function LoginRegModal(props) {
+  const navigate2 = useNavigate();
+  //const []
 
-  componentDidMount() {
+  useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        if (this.props.commitGoal) {
-          AddGoal(this.props.commitGoal, 30);
+        if (props.commitGoal) {
+          AddGoal(props.commitGoal, 30);
+          navigate2("/Account");
         }
       }
     });
-  }
+  })
 
-  async Register(e, email, password) {
-    e.preventDefault();
+    async function Register(e, email, password) {
+      e.preventDefault();
+    
+      try {
+        const user = await createUserWithEmailAndPassword(auth, email, password);
+        await AddUserToDatabase(user);
+        props.LogRegToggle();
+        navigate2('/Account');
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+      
+    async function Login(e, email, password) {
+      e.preventDefault();
 
-    try {
-      const user = await createUserWithEmailAndPassword(auth, email, password);
-      await AddUserToDatabase(user);
-      this.props.LogRegToggle();
-    } catch (err) {
-      console.log(err.message);
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        props.LogRegToggle();
+        //navigate("../Account", { replace: true });
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+    
+    async function Logout() {
+      await signOut(auth);
     }
-  }
-
-  async Login(e, email, password) {
-    e.preventDefault();
-
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      this.props.LogRegToggle();
-    } catch (err) {
-      console.log(err.message);
-    }
-  }
-
-  async Logout() {
-    await signOut(auth);
-  }
-
-  render() {
-    return (
-      <Modal show={this.props.logRegIsOpen} onHide={this.props.LogRegToggle}>
-        <Tab.Container defaultActiveKey={this.props.DefaultKey}>
-          <Modal.Header>
-            <Nav variant="pills">
-              <Nav.Item>
-                <Nav.Link eventKey="Login">Login</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="Register">Register</Nav.Link>
-              </Nav.Item>
-            </Nav>
-          </Modal.Header>
-          <Modal.Body>
-            <Tab.Content>
-              <Tab.Pane eventKey="Login">
-                <LoginForm Login={this.Login} />
-              </Tab.Pane>
-              <Tab.Pane eventKey="Register">
-                <RegisterForm Register={this.Register} />
-              </Tab.Pane>
-            </Tab.Content>
-          </Modal.Body>
-        </Tab.Container>
-      </Modal>
-    );
-  }
-}
+  
+    
+  return (
+    <Modal show={props.logRegIsOpen} onHide={props.LogRegToggle}>
+      <Tab.Container defaultActiveKey={props.DefaultKey}>
+        <Modal.Header>
+          <Nav variant="pills">
+            <Nav.Item>
+              <Nav.Link eventKey="Login">Login</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="Register">Register</Nav.Link>
+            </Nav.Item>
+          </Nav>
+        </Modal.Header>
+        <Modal.Body>
+          <Tab.Content>
+            <Tab.Pane eventKey="Login">
+              <LoginForm Login={Login} />
+            </Tab.Pane>
+            <Tab.Pane eventKey="Register">
+              <RegisterForm Register={Register} />
+            </Tab.Pane>
+          </Tab.Content>
+        </Modal.Body>
+      </Tab.Container>
+    </Modal>
+  );
+};
